@@ -63,40 +63,4 @@ if($auth_server->setParams($_GET) || $auth_server->sessionExists()) {
   // to keep all your pretty HTML separate from the business logic here.
   echo 'Something went wrong processing your request. Sorry, sorry, sorry!';
 }
-
-if(MYAPP_userIsLoggedIn()) {
-  /*
-      Great! Either your user already has a session at your website, or they
-      just logged in and are arriving here again. 
-  */
-  /*
-      Good. We started a session from a seemingly valid application. (If it's
-      not valid, no worries - there's not much they can do without a valid
-      session ID, anyway.)
-      
-      Here you want to see if your user is logged in. If yes, we'll move on.
-      If not, we'll push them to a login page, then push them back when done.
-      
-      For reference, items starting with MYAPP are just pseudocode, and you
-      should replace them with actual logic from your website.
-  */
-  if(MYAPP_userIsLoggedIn()) {
-    
-  } else {
-    /*
-        Ooh, no good. We'll need to ask this user to log in or sign up. You
-        could technically include() the form here, but it's better practice to
-        redirect to it, informing it that it needs to return to this page when
-        done. Just do whatever you typically do. All that matters is that, after
-        logging in, the user lands back here.
-    */
-    header("Location: $MYAPP_login_page");
-  }
-} else {
-  if(!$auth_server->initSession()) {
-    
-  } else {
-    
-  }
-}
 ?>
